@@ -24,7 +24,7 @@ export default function Free100() {
               Первые 100: бесплатно
             </h2>
             <p className="mt-4 text-[17px] leading-relaxed">
-              Первые 100 пользователей получают Premium бесплатно. Платить сейчас не нужно.
+              Первые 100 пользователей получают Premium бесплатно, раз и навсегда. Ни сейчас, ни потом платить не нужно.
             </p>
 
             <ol className="mt-6 space-y-3 text-[16px] leading-relaxed">
