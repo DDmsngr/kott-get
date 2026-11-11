@@ -4,13 +4,13 @@ import { Stamp, Tape, TornEdge } from './Paper'
 
 const steps = [
   'Установите КОТТ по инструкции выше.',
-  'Нажмите «Получить код в Telegram», бот пришлёт код.',
-  'В приложении откройте «Активировать промокод» и введите код.',
+  'В приложении откройте «Ещё» → «Лицензия» и нажмите «Скопировать» рядом с ID устройства.',
+  'Откройте бота в Telegram и отправьте ему этот ID: Premium включится на вашем устройстве.',
 ]
 
 export default function Free100() {
   return (
-    <section aria-labelledby="free-title">
+    <section aria-labelledby="free-title" className="overflow-x-clip">
       <TornEdge fill="#ECE5D8" />
       <div className="bg-paper-deep">
         <div className="mx-auto max-w-6xl px-5 py-14 sm:px-8 lg:py-20">
@@ -24,7 +24,7 @@ export default function Free100() {
               Первые 100: бесплатно
             </h2>
             <p className="mt-4 text-[17px] leading-relaxed">
-              Первые 100 пользователей получают Premium бесплатно, раз и навсегда. Ни сейчас, ни потом платить не нужно.
+              Первые 100 пользователей получают Premium бесплатно, раз и навсегда. Ни сейчас, ни потом платить не нужно. Одно устройство и один Telegram-аккаунт получают Premium один раз.
             </p>
 
             <ol className="mt-6 space-y-3 text-[16px] leading-relaxed">
@@ -44,7 +44,7 @@ export default function Free100() {
                 className="inline-flex min-h-14 items-center justify-center gap-2 rounded-2xl border-2 border-ink bg-ink px-6 text-lg font-semibold text-paper transition-colors hover:bg-paper hover:text-ink"
               >
                 <Send aria-hidden className="size-5" />
-                Получить код в Telegram
+                Открыть бота в Telegram
               </a>
               <p className="text-[15px] text-ink-soft">
                 Нет Telegram? Напишите на{' '}

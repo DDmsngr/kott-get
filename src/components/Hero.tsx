@@ -1,5 +1,6 @@
 import { m } from 'motion/react'
-import { ArrowDown, Download } from 'lucide-react'
+import { ArrowDown, Download, Send } from 'lucide-react'
+import { CONTACT_EMAIL, PROMO_BOT_URL, PROMO_MAIL_URL } from '../config'
 import type { Release } from '../useRelease'
 import { PhoneFrame, Stamp, Tape } from './Paper'
 
@@ -47,6 +48,30 @@ export default function Hero({ release }: { release: Release }) {
           </p>
           <div className="mt-6">
             <DownloadButton release={release} />
+          </div>
+
+          <div className="paper-card relative mt-7 max-w-md rounded-sm p-4 sm:p-5">
+            <Tape className="-top-3 right-6 rotate-3" />
+            <p className="font-serif text-xl font-bold">Первые 100: Premium бесплатно</p>
+            <p className="mt-1 text-[15px] leading-snug text-ink-soft">Раз и навсегда. Одно устройство и один Telegram-аккаунт получают Premium один раз.</p>
+            <ol className="mt-3 space-y-1 text-[15px] leading-snug">
+              <li>1. Установите приложение.</li>
+              <li>2. В приложении откройте «Ещё» → «Лицензия» и скопируйте ID устройства.</li>
+              <li>3. Отправьте этот ID боту в Telegram: Premium включится.</li>
+            </ol>
+            <a
+              href={PROMO_BOT_URL}
+              className="mt-4 inline-flex min-h-14 w-full items-center justify-center gap-2 rounded-2xl border-2 border-ink bg-ink px-5 text-[17px] font-semibold text-paper transition-colors hover:bg-paper hover:text-ink"
+            >
+              <Send aria-hidden className="size-5" />
+              Открыть бота в Telegram
+            </a>
+            <p className="mt-2 text-[13px] text-ink-soft">
+              Нет Telegram? Напишите на{' '}
+              <a href={PROMO_MAIL_URL} className="font-semibold text-ink underline underline-offset-2">
+                {CONTACT_EMAIL}
+              </a>
+            </p>
           </div>
           <a
             href="#install"
