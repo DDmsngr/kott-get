@@ -1,0 +1,27 @@
+name: Lighthouse
+
+on:
+  workflow_dispatch:
+
+jobs:
+  lighthouse:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Lighthouse mobile x3
+        run: |
+          for i in 1 2 3; do
+            npx -y lighthouse@12 https://ddmsngr.github.io/kott-get/ --quiet \
+              --chrome-flags="--headless=new --no-sandbox" \
+              --only-categories=performance,accessibility,best-practices,seo \
+              --output=json --output=html --output-path=./lh-$i
+          done
+          for i in 1 2 3; do
+            node -e "const r=require('./lh-$i.report.json');const a=r.audits;console.log(Object.values(r.categories).map(c=>c.title+': '+Math.round(c.score*100)).join(' | ')+' | LCP '+a['largest-contentful-paint'].displayValue+' FCP '+a['first-contentful-paint'].displayValue+' TBT '+a['total-blocking-time'].displayValue+' CLS '+a['cumulative-layout-shift'].displayValue)" | tee -a $GITHUB_STEP_SUMMARY
+          done
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lighthouse
+          path: lh-*
