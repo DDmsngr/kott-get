@@ -1,10 +1,10 @@
-import { Mail } from 'lucide-react'
-import { CONTACT_EMAIL, PROMO_URL } from '../config'
+import { Send } from 'lucide-react'
+import { CONTACT_EMAIL, PROMO_BOT_URL, PROMO_MAIL_URL } from '../config'
 import { Stamp, Tape, TornEdge } from './Paper'
 
 const steps = [
   'Установите КОТТ по инструкции выше.',
-  'Напишите нам, мы пришлём код.',
+  'Нажмите «Получить код в Telegram», бот пришлёт код.',
   'В приложении откройте «Активировать промокод» и введите код.',
 ]
 
@@ -40,15 +40,15 @@ export default function Free100() {
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-6">
               <a
-                href={PROMO_URL}
+                href={PROMO_BOT_URL}
                 className="inline-flex min-h-14 items-center justify-center gap-2 rounded-2xl border-2 border-ink bg-ink px-6 text-lg font-semibold text-paper transition-colors hover:bg-paper hover:text-ink"
               >
-                <Mail aria-hidden className="size-5" />
-                Получить код
+                <Send aria-hidden className="size-5" />
+                Получить код в Telegram
               </a>
               <p className="text-[15px] text-ink-soft">
-                Напишите нам:{' '}
-                <a href={PROMO_URL} className="font-semibold text-ink underline underline-offset-4">
+                Нет Telegram? Напишите на{' '}
+                <a href={PROMO_MAIL_URL} className="font-semibold text-ink underline underline-offset-4">
                   {CONTACT_EMAIL}
                 </a>
               </p>
